@@ -1,0 +1,30 @@
+spring:
+  profiles:
+    active:
+      - dev
+---
+server:
+  port: 7001    #注册中心占用7001端口，冒号后面必须要有空格
+
+spring:
+  profiles: dev
+  application:
+    name: avex-eureka
+
+eureka:
+  instance:
+    hostname: eureka4.cn    #冒号后面必需要有空格
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+---
+server:
+  port: 7001    #注册中心占用7001端口，冒号后面必须要有空格
+
+spring:
+  profiles: test
+  application:
+    name: avex-eureka
+
+eureka:
+  instance:
+    hostname: eureka4.com    #冒号后面必须要有空格
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
