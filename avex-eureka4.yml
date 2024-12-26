@@ -14,7 +14,6 @@ spring:
 eureka:
   instance:
     hostname: localhost #eureka服务端的实例名称
-    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
 ---
 server:
   port: 7004
@@ -27,4 +26,3 @@ spring:
 eureka:
   instance:
     hostname: localhost #eureka服务端的实例名称
-    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
