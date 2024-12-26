@@ -4,7 +4,14 @@ spring:
       - dev
 ---
 server:
-  port: 8001
+  port: 8005
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: cn.kuriasul.avex.common.entity
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml
+  
 spring:
   profiles: dev
   application:
@@ -14,35 +21,36 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://172.16.9.201:3306/avex_system1?useSSL=false
     username: root
-    password: 123456
+    password: ops@kuriasul
     dbcp2:
       min-idle: 5
       initial-size: 5
       max-total: 5
       max-wait-millis: 200
 
-mybatis:
-  config-location: classpath:mybatis/mybatis.cfg.xml
-  type-aliases-package: cn.kuriasul.avex.common.entities
-  mapper-locations:
-    - classpath:mybatis/mapper/**/*.xml
-
 eureka:
   client: #客户端注册进eureka服务列表内
     service-url:
-      defaultZone: http://eureka1.cn:7001/eureka
+      defaultZone: http://eureka4.cn:7004/eureka
   instance:
-    instance-id: dept-8001.com
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
     prefer-ip-address: true
 
 info:
-  app.name: atguigu-microservicecloud-springcloudconfig02
-  company.name: www.atguigu.com
+  app.name: ks-avex
+  company.name: www.kuriasul.cn
   build.artifactId: $project.artifactId$
   build.version: $project.version$
 ---
 server:
-  port: 8001
+  port: 8005
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: cn.kuriasul.avex.common.entity
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml
+  
 spring:
   profiles: test
   application:
@@ -52,29 +60,23 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://172.16.9.201:3306/avex_system2?useSSL=false
     username: root
-    password: 123456
+    password: ops@kuriasul
     dbcp2:
       min-idle: 5
       initial-size: 5
       max-total: 5
       max-wait-millis: 200
 
-mybatis:
-  config-location: classpath:mybatis/mybatis.cfg.xml
-  type-aliases-package: cn.kuriasul.avex.common.entities
-  mapper-locations:
-    - classpath:mybatis/mapper/**/*.xml
-
 eureka:
   client: #客户端注册进eureka服务列表内
     service-url:
-      defaultZone: http://eureka1.cn:7001/eureka
+      defaultZone: http://eureka4.cn:7004/eureka
   instance:
-    instance-id: dept-8001.com
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
     prefer-ip-address: true
 
 info:
-  app.name: atguigu-microservicecloud-springcloudconfig02
-  company.name: www.atguigu.com
+  app.name: ks-avex
+  company.name: www.kuriasul.cn
   build.artifactId: $project.artifactId$
   build.version: $project.version$
