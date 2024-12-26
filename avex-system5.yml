@@ -19,7 +19,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://172.16.9.201:3306/avex_system1?useSSL=false
+    url: jdbc:mysql://172.16.9.201:3306/avex_system3?useSSL=false
     username: root
     password: ops@kuriasul
     dbcp2:
