@@ -15,9 +15,6 @@ eureka:
   instance:
     hostname: eureka4.cn #eureka服务端的实例名称
     instance-id: ${spring.cloud.client.ipAddress}:${server.port}
-  client:
-    service-url:
-      defaultZone: http://${spring.cloud.client.ipAddress}:${server.port}/eureka
 ---
 server:
   port: 7004
@@ -31,6 +28,3 @@ eureka:
   instance:
     hostname: eureka4.cn #eureka服务端的实例名称
     instance-id: ${spring.cloud.client.ipAddress}:${server.port}
-  client:
-    service-url:
-      defaultZone: http://${spring.cloud.client.ipAddress}:${server.port}/eureka
